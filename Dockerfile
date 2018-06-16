@@ -11,7 +11,7 @@ WORKDIR /root/
 
 RUN apk update; \
     apk add --upgrade apk-tools; \
-    apk --update add --no-cache --force-broken-world \
+    apk add --update  --no-cache --force-broken-world \
     tk-dev                 \
     gfortran               \
     sqlite3                \
@@ -23,6 +23,7 @@ RUN apk update; \
 RUN apk add --no-cache \
             --virtual  \
             --force-broken-world \
+	        .build-deps \
 		bzip2-dev \
 		coreutils \
 		dpkg-dev dpkg \
