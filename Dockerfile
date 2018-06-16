@@ -23,24 +23,24 @@ RUN apk update; \
 USER $NB_USER
 WORKDIR /home/$NB_USER
 
-RUN wget https://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.xz \
-    && tar -xvf node-v8.11.1-linux-x64.tar.xz
+#RUN wget https://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.xz \
+#    && tar -xvf node-v8.11.1-linux-x64.tar.xz
     
-ENV PATH="/home/$NB_USER/node-v8.11.1-linux-x64/bin:$PATH"
+#ENV PATH="/home/$NB_USER/node-v8.11.1-linux-x64/bin:$PATH"
 
-RUN mkdir -p /home/$NB_USER/tmp    \
-    && npm install --global yarn   \
-    && git clone https://github.com/jupyterlab/jupyter-renderers.git \
-    && cd jupyter-renderers        \
-    && jlpm                        \
-    && jlpm build                  \
-    && jupyter labextension link packages/plotly-extension \
-    && jlpm build                  \
-    && jupyter labextension link packages/fasta-extension  \
-    && jlpm build                  \
-    && jupyter lab build           \
-    && rm -rf /home/$NB_USER/tmp   \
-    && mkdir -p /home/$NB_USER/tmp 
+#RUN mkdir -p /home/$NB_USER/tmp    \
+#    && npm install --global yarn   \
+#    && git clone https://github.com/jupyterlab/jupyter-renderers.git \
+#    && cd jupyter-renderers        \
+#    && jlpm                        \
+#    && jlpm build                  \
+#    && jupyter labextension link packages/plotly-extension \
+#    && jlpm build                  \
+#    && jupyter labextension link packages/fasta-extension  \
+#    && jlpm build                  \
+#    && jupyter lab build           \
+#    && rm -rf /home/$NB_USER/tmp   \
+#    && mkdir -p /home/$NB_USER/tmp 
 
 RUN pip install    \
         --no-cache-dir -q \
