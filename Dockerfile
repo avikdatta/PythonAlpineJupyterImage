@@ -46,8 +46,8 @@ RUN apk add --no-cache \
 		tk \
 		tk-dev \
 		xz-dev \
-		zlib-dev \
-	&& apk del .fetch-deps
+		zlib-dev 
+#	&& apk del .fetch-deps
 
 #RUN wget https://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.xz \
 #    && tar -xvf node-v8.11.1-linux-x64.tar.xz
