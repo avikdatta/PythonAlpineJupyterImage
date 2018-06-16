@@ -20,7 +20,9 @@ RUN apk update; \
     tar                    \
     xz
     
-RUN apk add --no-cache --virtual .build-deps  \
+RUN apk add --no-cache \
+            --virtual .build-deps  \
+            --force-broken-world \
 		bzip2-dev \
 		coreutils \
 		dpkg-dev dpkg \
