@@ -42,7 +42,7 @@ WORKDIR /home/$NB_USER
 #    && rm -rf /home/$NB_USER/tmp   \
 #    && mkdir -p /home/$NB_USER/tmp 
 
-RUN pip install    \
+RUN pip install  --user  \
         --no-cache-dir -q \
         cython     \
         numpy      \
