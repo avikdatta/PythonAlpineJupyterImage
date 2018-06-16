@@ -21,7 +21,7 @@ RUN apk update; \
     xz
     
 RUN apk add --no-cache \
-            --virtual  \
+            --update  \
             --force-broken-world \
 	        .build-deps \
 		bzip2-dev \
