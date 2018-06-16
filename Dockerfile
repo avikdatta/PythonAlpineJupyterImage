@@ -20,8 +20,31 @@ RUN apk update; \
     tar                    \
     xz
     
-USER $NB_USER
-WORKDIR /home/$NB_USER
+RUN apk add --no-cache --virtual .build-deps  \
+		bzip2-dev \
+		coreutils \
+		dpkg-dev dpkg \
+		expat-dev \
+		gcc \
+		gdbm-dev \
+		libc-dev \
+		libffi-dev \
+		libnsl-dev \
+		libressl \
+		libressl-dev \
+		libtirpc-dev \
+		linux-headers \
+		make \
+		ncurses-dev \
+		pax-utils \
+		readline-dev \
+		sqlite-dev \
+		tcl-dev \
+		tk \
+		tk-dev \
+		xz-dev \
+		zlib-dev \
+	&& apk del .fetch-deps
 
 #RUN wget https://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.xz \
 #    && tar -xvf node-v8.11.1-linux-x64.tar.xz
@@ -42,7 +65,7 @@ WORKDIR /home/$NB_USER
 #    && rm -rf /home/$NB_USER/tmp   \
 #    && mkdir -p /home/$NB_USER/tmp 
 
-RUN pip install  --user  \
+RUN pip3 install  \
         --no-cache-dir -q \
         cython     \
         numpy      \
@@ -81,6 +104,8 @@ RUN pip install  --user  \
   #  rm -rf /home/$NB_USER/tmp; \
    # rm -rf node-v8.11.1-linux-x64.tar.xz node-v8.11.1-linux-x64 jupyter-renderers; \
     #mkdir /home/$NB_USER/tmp
-    
+USER $NB_USER
+WORKDIR /home/$NB_USER
+
 EXPOSE 8888
 CMD ["jupyter","lab","--ip=0.0.0.0","--port=8888","--no-browser","--NotebookApp.iopub_data_rate_limit=100000000"]
