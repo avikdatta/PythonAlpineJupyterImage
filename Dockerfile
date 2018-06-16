@@ -67,19 +67,20 @@ RUN pip install  --user  \
         line_profiler \
         memory_profiler \
         plotly        \
-        cufflinks     \
-        python-igraph \
-        louvain       
+        cufflinks     
+        
+#        python-igraph \
+#        louvain       
 
-WORKDIR /home/$NB_USER
+##WORKDIR /home/$NB_USER
 
-RUN set -ex; \
-    rm -rf /home/$NB_USER/.cache; \
-    find $PYENV_ROOT -type d -a \( -name test -o -name tests \) -exec rm -rf '{}' +; \
-    find $PYENV_ROOT -type f -a \( -name '*.pyc' -o -name '*.pyo' \) -exec rm -f '{}' +; \
-    rm -rf /home/$NB_USER/tmp; \
-    rm -rf node-v8.11.1-linux-x64.tar.xz node-v8.11.1-linux-x64 jupyter-renderers; \
-    mkdir /home/$NB_USER/tmp
+#RUN set -ex; \
+#    rm -rf /home/$NB_USER/.cache; \
+##    find $PYENV_ROOT -type d -a \( -name test -o -name tests \) -exec rm -rf '{}' +; \
+ #   find $PYENV_ROOT -type f -a \( -name '*.pyc' -o -name '*.pyo' \) -exec rm -f '{}' +; \
+  #  rm -rf /home/$NB_USER/tmp; \
+   # rm -rf node-v8.11.1-linux-x64.tar.xz node-v8.11.1-linux-x64 jupyter-renderers; \
+    #mkdir /home/$NB_USER/tmp
     
 EXPOSE 8888
 CMD ["jupyter","lab","--ip=0.0.0.0","--port=8888","--no-browser","--NotebookApp.iopub_data_rate_limit=100000000"]
