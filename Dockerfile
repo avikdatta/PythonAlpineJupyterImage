@@ -18,8 +18,24 @@ RUN apk update; \
     libhdf5-serial-dev     \
     libigraph0-dev         \
     tar                    \
-    xz
+    xz                     \
+    libgfortran            \
+    libgcc                 \
+    libstdc++              \
+    musl                   \
+    openblas               \
+    tcl                    \
+    tk                     \
+    hdf5                   \
+    libxml2                \
+    zlib                   \
+    llvm5
     
+RUN apk add --no-cache --force-broken-world \
+    --virtual .build-deps \
+    build-base wget git \
+    python3-dev freetype-dev libpng-dev openblas-dev \
+    tcl-dev tk-dev hdf5-dev libxml2-dev zlib-dev llvm5-dev linux-headers
 
 
 #RUN wget https://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.xz \
@@ -43,32 +59,32 @@ RUN apk update; \
 
 RUN pip3 install  \
         --no-cache-dir -q \
-        cython     \
-        numpy      \
-        sklearn    \
-        pandas     \
-        matplotlib \
-        seaborn    \
+        cython          \
+        numpy           \
+        sklearn         \
+        pandas          \
+        matplotlib      \
+        seaborn         \
         pandas_datareader  \
-        bs4        \
-        matplotlib \
-        nltk       \
-        gensim     \
-        pymysql    \
-        xlrd       \
-        openpyxl   \
-        sqlalchemy \
-        slackclient \
-        asana       \
-        holoviews   \
-        bokeh       \
-        line_profiler \
-        memory_profiler
+        bs4             \
+        matplotlib      \
+        nltk            \
+        gensim          \
+        pymysql         \
+        xlrd            \
+        openpyxl        \
+        sqlalchemy      \
+        slackclient     \
+        asana           \
+        holoviews       \
+        bokeh           \
+        line_profiler   \
+        memory_profiler \
+        plotly          \
+        cufflinks       \
+        scipy
         
-        #plotly        \
-        #cufflinks     
-#        scipy      \        
-#        python-igraph \
+#        python-igraph  \
 #        louvain       
 
 ##WORKDIR /home/$NB_USER
