@@ -45,7 +45,6 @@ RUN pip3 install  \
         --no-cache-dir -q \
         cython     \
         numpy      \
-        scipy      \
         sklearn    \
         pandas     \
         matplotlib \
@@ -64,10 +63,11 @@ RUN pip3 install  \
         holoviews   \
         bokeh       \
         line_profiler \
-        memory_profiler \
-        plotly        \
-        cufflinks     
+        memory_profiler
         
+        #plotly        \
+        #cufflinks     
+#        scipy      \        
 #        python-igraph \
 #        louvain       
 
