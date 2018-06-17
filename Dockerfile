@@ -20,34 +20,7 @@ RUN apk update; \
     tar                    \
     xz
     
-RUN apk add --no-cache \
-            --update  \
-            --force-broken-world \
-	        .build-deps \
-		bzip2-dev \
-		coreutils \
-		dpkg-dev dpkg \
-		expat-dev \
-		gcc \
-		gdbm-dev \
-		libc-dev \
-		libffi-dev \
-		libnsl-dev \
-		libressl \
-		libressl-dev \
-		libtirpc-dev \
-		linux-headers \
-		make \
-		ncurses-dev \
-		pax-utils \
-		readline-dev \
-		sqlite-dev \
-		tcl-dev \
-		tk \
-		tk-dev \
-		xz-dev \
-		zlib-dev 
-#	&& apk del .fetch-deps
+
 
 #RUN wget https://nodejs.org/dist/v8.11.1/node-v8.11.1-linux-x64.tar.xz \
 #    && tar -xvf node-v8.11.1-linux-x64.tar.xz
